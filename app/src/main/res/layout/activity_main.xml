@@ -16,59 +16,74 @@
             android:background="@color/offwhite"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/emptyview"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:visibility="visible">
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="4"
-                    android:src="@drawable/ic_illustration" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginLeft="@dimen/_48sdp"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:layout_marginRight="@dimen/_48sdp"
-                    android:layout_weight="0.5"
-                    android:fontFamily="@font/poppins"
-                    android:text="@string/tag_line"
-                    android:textSize="@dimen/_20sdp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginLeft="@dimen/_48sdp"
-                    android:layout_marginTop="@dimen/_7sdp"
-                    android:layout_marginRight="@dimen/_48sdp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/poppins"
-                    android:text="@string/tag_line_desc"
-                    android:textSize="@dimen/_17sdp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/shortlinklayout"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="7"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/shortlinklayout_list"
+                <LinearLayout
+                    android:id="@+id/emptyview"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scrollbars="vertical" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:src="@drawable/ic_illustration" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="@dimen/_48sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginRight="@dimen/_48sdp"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/tag_line"
+                        android:textSize="@dimen/_20sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="@dimen/_48sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:layout_marginRight="@dimen/_48sdp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/tag_line_desc"
+                        android:textSize="@dimen/_17sdp" />
+
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:indeterminateTint="@color/red"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/shortlinklayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="7"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/shortlinklayout_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="vertical" />
+                </LinearLayout>
+            </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -99,6 +114,7 @@
                     android:orientation="vertical">
 
                     <EditText
+                        android:id="@+id/link"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_49sdp"
                         android:layout_marginLeft="@dimen/_48sdp"
@@ -111,19 +127,22 @@
                         android:textSize="@dimen/_17sdp" />
 
                     <Button
+                        android:id="@+id/submit"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_49sdp"
                         android:layout_marginLeft="@dimen/_48sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-
                         android:layout_marginRight="@dimen/_48sdp"
                         android:background="@color/white"
                         android:fontFamily="@font/poppins"
                         android:gravity="center"
+                        android:onClick="onSubmitClick"
                         android:text="@string/button_text"
                         android:textStyle="bold" />
                 </LinearLayout>
+
             </RelativeLayout>
         </LinearLayout>
+
     </LinearLayout>
 </layout>
