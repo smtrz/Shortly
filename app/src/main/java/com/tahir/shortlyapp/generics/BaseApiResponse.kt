@@ -1,6 +1,5 @@
-package com.zenjob.android.browsr.generics
+package com.tahir.shortlyapp.generics
 
-import com.tahir.shortlyapp.generics.NetworkResult
 import retrofit2.Response
 
 /**
@@ -8,6 +7,7 @@ import retrofit2.Response
  * Network Result
  */
 abstract class BaseApiResponse {
+
     suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): NetworkResult<T> {
         try {
 

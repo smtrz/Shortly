@@ -6,6 +6,12 @@ apply from: 'dependencies.gradle'
 apply plugin: 'dagger.hilt.android.plugin'
 
 android {
+    packagingOptions {
+        exclude "**/attach_hotspot_windows.dll"
+        exclude "META-INF/licenses/**"
+        exclude "META-INF/AL2.0"
+        exclude "META-INF/LGPL2.1"
+    }
     buildFeatures {
         dataBinding true
     }
@@ -42,7 +48,6 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlin_version"
-    implementation 'androidx.core:core-ktx:1.7.0'
 
     //Dependencies of Network Libs
     implementation networkDependencies.values()
@@ -52,6 +57,7 @@ dependencies {
 
     //Dependencies of Android Support Libs
     implementation supportDependencies.values()
+    implementation 'androidx.test:core-ktx:1.4.0'
 
     //  annotation processing
     annotationProcessor annotations.values()

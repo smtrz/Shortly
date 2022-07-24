@@ -1,148 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
 
     <LinearLayout
-        android:id="@+id/mainlayout"
+        android:id="@+id/secondarylayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="10">
+        android:layout_above="@+id/fieldlayout"
+        android:background="@color/offwhite"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/secondarylayout"
+            android:id="@+id/shortlinklayout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="7"
-            android:background="@color/offwhite"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
 
-            <RelativeLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shortlinklayout_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <LinearLayout
-                    android:id="@+id/emptyview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:visibility="visible">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="4"
-                        android:src="@drawable/ic_illustration" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="@dimen/_48sdp"
-                        android:layout_marginTop="@dimen/_12sdp"
-                        android:layout_marginRight="@dimen/_48sdp"
-                        android:layout_weight="0.5"
-                        android:fontFamily="@font/poppins"
-                        android:text="@string/tag_line"
-                        android:textSize="@dimen/_20sdp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="@dimen/_48sdp"
-                        android:layout_marginTop="@dimen/_7sdp"
-                        android:layout_marginRight="@dimen/_48sdp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/poppins"
-                        android:text="@string/tag_line_desc"
-                        android:textSize="@dimen/_17sdp" />
-
-                </LinearLayout>
-
-                <ProgressBar
-                    android:id="@+id/progressbar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:indeterminateTint="@color/red"
-                    android:visibility="gone" />
-
-                <LinearLayout
-                    android:id="@+id/shortlinklayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="7"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/shortlinklayout_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scrollbars="vertical" />
-                </LinearLayout>
-            </RelativeLayout>
+                android:layout_height="match_parent" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/fieldlayout"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:background="@color/browser_actions_bg_grey"
-            android:backgroundTint="@color/darkviolet"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/emptyview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_shape" />
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:src="@drawable/ic_illustration" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="@dimen/_48sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_48sdp"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/tag_line"
+                    android:textSize="@dimen/_20sdp"
+                    android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/link"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_49sdp"
-                        android:layout_marginLeft="@dimen/_48sdp"
-                        android:layout_marginRight="@dimen/_48sdp"
-                        android:background="@color/white"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="center"
-                        android:hint="@string/edittext_hint"
-                        android:inputType="text"
-                        android:textSize="@dimen/_17sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="@dimen/_48sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:layout_marginRight="@dimen/_48sdp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/tag_line_desc"
+                    android:textSize="@dimen/_17sdp" />
+            </LinearLayout>
 
-                    <Button
-                        android:id="@+id/submit"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_49sdp"
-                        android:layout_marginLeft="@dimen/_48sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginRight="@dimen/_48sdp"
-                        android:background="@color/white"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="center"
-                        android:onClick="onSubmitClick"
-                        android:text="@string/button_text"
-                        android:textStyle="bold" />
-                </LinearLayout>
 
-            </RelativeLayout>
-        </LinearLayout>
-
+        </RelativeLayout>
     </LinearLayout>
-</layout>
+
+    <LinearLayout
+        android:id="@+id/fieldlayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/browser_actions_bg_grey"
+        android:backgroundTint="@color/darkviolet"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_shape" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/link"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_49sdp"
+                    android:layout_marginLeft="@dimen/_48sdp"
+                    android:layout_marginRight="@dimen/_48sdp"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:hint="@string/edittext_hint"
+                    android:inputType="text"
+                    android:textSize="@dimen/_17sdp" />
+
+                <Button
+                    android:id="@+id/submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_49sdp"
+                    android:layout_marginLeft="@dimen/_48sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_48sdp"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:onClick="onSubmitClick"
+                    android:text="@string/button_text"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/red"
+        android:visibility="gone" />
+</RelativeLayout>
